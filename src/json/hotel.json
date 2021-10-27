@@ -1,6 +1,9 @@
 {
     "name": "Hotel Las Palmas",
     "stars": 5,
+    "location": "Albufeira, Portugal",
+    "ratingAverage": 8.6,
+    "ratingCount" : "96 votes",
     "images": [
         {
             "id": 1,
