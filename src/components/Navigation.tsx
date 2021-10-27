@@ -1,17 +1,16 @@
-import { Fragment, useState } from 'react';
 import { FaHome, FaPlane, FaCar, FaMap } from 'react-icons/fa';
 import { IconType } from 'react-icons'
 
 const Navigation = () => {
 
-    type LiItem = {
+    type MenuItem = {
         id: number;
-        icon: IconType;
+        icon: IconType | string;
         active: boolean;
         label: string;
     }
 
-    const [liItems] = useState<LiItem[]>([
+    const items: MenuItem[] = [
         {
             id: 1,
             icon: FaHome,
@@ -36,21 +35,19 @@ const Navigation = () => {
             active: false,
             label: 'Tours'
         },
-    ])
+    ]
 
     return (
         <nav className="sidebar">
             <ul className="side-nav">
-                {liItems.length !== 0 ? (
-                    liItems.map((li: LiItem) => (
-                        <li key={li.id} className={li.active ? "side-nav__item side-nav__item--active" : "side-nav__item"}>
-                            <a href="!#" className="side-nav__link">
-                                <li.icon className="side-nav__icon" />
-                                <span>{li.label}</span>
-                            </a>
-                        </li>
-                    ))
-                ) : <Fragment />}
+                {items.map((item: MenuItem) => (
+                    <li key={item.id} className={item.active ? "side-nav__item side-nav__item--active" : "side-nav__item"}>
+                        <a href="!#" className="side-nav__link">
+                            <item.icon className="side-nav__icon" />
+                            <span>{item.label}</span>
+                        </a>
+                    </li>
+                ))}
             </ul>
 
             <div className="legal">
