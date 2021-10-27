@@ -1,6 +1,17 @@
 import { FaStar } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
 
+type Image = {
+    id: number
+    img: string
+    alt: string
+}
+
+type Hotel = {
+    name: string
+    stars: number
+}
+
 const getStars = (stars: number) => {
 
     let starRate = [];
@@ -16,8 +27,8 @@ const Main = () => {
     return (
         <main className="hotel-view">
             <div className="gallery">
-                {hotels.images.map((hotel: any) => (
-                    <figure className="gallery__item">
+                {hotels.images.map((hotel: Image, i: number) => (
+                    <figure className="gallery__item" key={i}>
                         <img src={require(`../img/${hotel.img}`).default} alt={hotel.alt} className="gallery__photo" />
                     </figure>
                 ))}
@@ -28,7 +39,7 @@ const Main = () => {
                     {hotels.name}
                 </div>
                 <div className="overview__stars">
-                    {getStars(5)}
+                    {getStars(hotels.stars)}
                 </div>
             </div>
         </main>

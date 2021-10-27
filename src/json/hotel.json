@@ -1,23 +1,21 @@
 {
     "name": "Hotel Las Palmas",
+    "stars": 5,
     "images": [
         {
             "id": 1,
             "img": "hotel-1.jpg",
-            "alt": "Hotel 1",
-            "rating": 5
+            "alt": "Hotel 1"
         },
         {
             "id": 2,
             "img": "hotel-2.jpg",
-            "alt": "Hotel 2",
-            "rating": 5
+            "alt": "Hotel 2"
         },
         {
             "id": 3,
             "img": "hotel-3.jpg",
-            "alt": "Hotel 3",
-            "rating": 5
+            "alt": "Hotel 3"
         }
     ]
 }
