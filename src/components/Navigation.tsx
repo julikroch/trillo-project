@@ -34,7 +34,7 @@ const Navigation = () => {
             icon: FaMap,
             active: false,
             label: 'Tours'
-        },
+        }
     ]
 
     return (
