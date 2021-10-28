@@ -2,8 +2,10 @@
     "name": "Hotel Las Palmas",
     "stars": 5,
     "location": "Albufeira, Portugal",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, deleniti qui. Debitis quia consequatur, odit voluptatem pariatur tempora non quos magni, impedit ab amet, earum provident! Omnis impedit exercitationem voluptas.",
+    "reviews": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, deleniti qui.",
     "ratingAverage": 8.6,
-    "ratingCount" : "96 votes",
+    "ratingCount": "96 votes",
     "images": [
         {
             "id": 1,
