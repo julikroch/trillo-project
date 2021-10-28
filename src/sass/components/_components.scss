@@ -182,6 +182,7 @@
 
     &__photo {
         width: 100%;
+        height: 100%;
     }
 }
 
@@ -201,6 +202,7 @@
     &__stars {
         margin-right: auto;
         display: flex;
+        gap: .25rem;
     }
 
     &__icon-location,
@@ -238,7 +240,6 @@
     }
 
     &__rating-count {
-        font-size: .8rem;
         text-transform: uppercase;
     }
 }
