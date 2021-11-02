@@ -22,5 +22,31 @@
             "img": "hotel-3.jpg",
             "alt": "Hotel 3"
         }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "text": "Close to the beach"
+        },
+        {
+            "id": 2,
+            "text": "Breakfast included"
+        },
+        {
+            "id": 3,
+            "text": "Free airport shuttle"
+        },
+        {
+            "id": 4,
+            "text": "Free wifi in all rooms"
+        },
+        {
+            "id": 5,
+            "text": "Air conditioning and heating"
+        },
+        {
+            "id": 6,
+            "text": "Pet friendly"
+        }
     ]
 }

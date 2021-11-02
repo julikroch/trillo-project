@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { FaStar, FaLocationArrow } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
+import person from './../img/user-1.jpg'
 
 type Image = {
     id: number
@@ -7,16 +9,24 @@ type Image = {
     alt: string
 }
 
-// type Hotel = {
-//     name: string
-//     stars: number
-//     location: string
-//     ratingAverage: number,
-//     ratingCount: string
-// }
+type Item = {
+    id: number
+    text: string
+}
+
+type Hotel = {
+    name: string
+    stars: number
+    location: string
+    ratingAverage: number
+    ratingCount: string
+    description: string
+    reviews: string
+    images: Image[]
+    items: Item[]
+}
 
 const getStars = (stars: number) => {
-
     let starRate = [];
 
     for (let index = 0; index < stars; index++) {
@@ -27,65 +37,74 @@ const getStars = (stars: number) => {
 }
 
 const Main = () => {
+
+    const [hotel] = useState<Hotel>(hotels)
+
+    const {
+        name,
+        location,
+        ratingAverage,
+        ratingCount,
+        stars,
+        description,
+        reviews,
+        images,
+        items
+    } = hotel
+
     return (
         <main className="hotel-view">
             <div className="gallery">
-                {hotels.images.map((hotel: Image, i: number) => (
+                {images.map((image: Image, i: number) => (
                     <figure className="gallery__item" key={i}>
-                        <img src={require(`../img/${hotel.img}`).default} alt={hotel.alt} className="gallery__photo" />
+                        <img src={require(`../img/${image.img}`).default} alt={image.alt} className="gallery__photo" />
                     </figure>
                 ))}
             </div>
 
             <div className="overview">
                 <div className="overview__heading">
-                    {hotels.name}
+                    {name}
                 </div>
                 <div className="overview__stars">
-                    {getStars(hotels.stars)}
+                    {getStars(stars)}
                 </div>
                 <div className="overview__location">
                     <FaLocationArrow className='overview__icon-location' />
-                    <button className="btn-inline">{hotels.location}</button>
+                    <button className="btn-inline">{location}</button>
                 </div>
                 <div className="overview__rating">
-                    <div className="overview__rating-average">{hotels.ratingAverage}</div>
-                    <div className="overview__rating-count">{hotels.ratingCount}</div>
+                    <div className="overview__rating-average">{ratingAverage}</div>
+                    <div className="overview__rating-count">{ratingCount}</div>
                 </div>
             </div>
 
             <div className="detail">
                 <div className="description">
                     <p className="paragraph">
-                        {hotels.description}
+                        {description}
                     </p>
                     <p className="paragraph">
-                        {hotels.description}
+                        {description}
                     </p>
                     <ul className="list">
-                        <li className="list__item">Close to the beach</li>
-                        <li className="list__item">Breakfast included</li>
-                        <li className="list__item">Free airport shuttle</li>
-                        <li className="list__item">Free wifi in all rooms</li>
-                        <li className="list__item">air conditioning and heating</li>
-                        <li className="list__item">Pet friendly</li>
-                        <li className="list__item">Perfect for families</li>
+                        {items.map((item: Item) => (
+                            <li className="list__item" key={item.id}>{item.text}</li>
+                        ))}
                     </ul>
-
                     <div className="recommend">
                         <div className="recommend__count">
                             Lucy and 3 other friends recommend this hotel
                         </div>
-
                         <div className="recommend__friends">
-                            <img src="./../img/user-1.jpg" alt="Test" />
+                            <img src={person} alt="Person" />
                         </div>
                     </div>
                 </div>
                 <div className="user-reviews">
+                    {reviews}
                 </div>
             </div>
-
         </main>
     )
 }
