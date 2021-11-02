@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaStar, FaLocationArrow } from 'react-icons/fa';
+import { FaStar, FaLocationArrow, FaChevronRight } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
 import person from './../img/user-1.jpg'
 
@@ -89,7 +89,7 @@ const Main = () => {
                     </p>
                     <ul className="list">
                         {items.map((item: Item) => (
-                            <li className="list__item" key={item.id}>{item.text}</li>
+                            <li className="list__item" key={item.id}> <FaChevronRight className="list__icon" />{item.text}</li>
                         ))}
                     </ul>
                     <div className="recommend">
@@ -97,7 +97,10 @@ const Main = () => {
                             Lucy and 3 other friends recommend this hotel
                         </div>
                         <div className="recommend__friends">
-                            <img src={person} alt="Person" />
+                            <img src={person} className="recommend__photo" alt="Person" />
+                            <img src={person} className="recommend__photo" alt="Person" />
+                            <img src={person} className="recommend__photo" alt="Person" />
+                            <img src={person} className="recommend__photo" alt="Person" />
                         </div>
                     </div>
                 </div>
