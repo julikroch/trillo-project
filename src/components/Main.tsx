@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { FaStar, FaLocationArrow, FaChevronRight } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
-import person from './../img/user-1.jpg'
 
 type Image = {
+    id: number
+    img: string
+    alt: string
+}
+
+type PersonImages = {
     id: number
     img: string
     alt: string
@@ -24,6 +29,7 @@ type Hotel = {
     reviews: string
     images: Image[]
     items: Item[]
+    personImages: PersonImages[]
 }
 
 const getStars = (stars: number) => {
@@ -49,7 +55,8 @@ const Main = () => {
         description,
         reviews,
         images,
-        items
+        items,
+        personImages
     } = hotel
 
     return (
@@ -78,7 +85,6 @@ const Main = () => {
                     <div className="overview__rating-count">{ratingCount}</div>
                 </div>
             </div>
-
             <div className="detail">
                 <div className="description">
                     <p className="paragraph">
@@ -97,10 +103,9 @@ const Main = () => {
                             Lucy and 3 other friends recommend this hotel
                         </div>
                         <div className="recommend__friends">
-                            <img src={person} className="recommend__photo" alt="Person" />
-                            <img src={person} className="recommend__photo" alt="Person" />
-                            <img src={person} className="recommend__photo" alt="Person" />
-                            <img src={person} className="recommend__photo" alt="Person" />
+                            {personImages.map((image: PersonImages, i: number) => (
+                                <img key={i} src={require(`../img/${image.img}`).default} alt={image.alt} className="recommend__photo" />
+                            ))}
                         </div>
                     </div>
                 </div>
