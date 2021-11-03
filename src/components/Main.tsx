@@ -110,7 +110,33 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="user-reviews">
-                    {reviews}
+                    <figure className="review">
+                        <blockquote className="review__text">
+                            {reviews}
+                        </blockquote>
+                        <figcaption className="review__user">
+                            <img src='' alt="" className="review__photo" />
+                            <div className="review__user-box">
+                                <p className="review__user-name">Nick Smith</p>
+                                <p className="review__user-date">Feb 23rd, 2021</p>
+                            </div>
+                            <div className="review__rating">7.8</div>
+                        </figcaption>
+                    </figure>
+                    <figure className="review">
+                        <blockquote className="review__text">
+                            {reviews}
+                        </blockquote>
+                        <figcaption className="review__user">
+                            <img src='' alt="" className="review__photo" />
+                            <div className="review__user-box">
+                                <p className="review__user-name">Mary Thomas</p>
+                                <p className="review__user-date">Feb 28th, 2021</p>
+                            </div>
+                            <div className="review__rating">9.3</div>
+                        </figcaption>
+                    </figure>
+                    <button className="btn-inline">Show all <span>&rarr;</span></button>
                 </div>
             </div>
         </main>

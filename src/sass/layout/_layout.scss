@@ -38,6 +38,8 @@
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+    font-size: 1.4rem;
+    gap: 2.5rem;
 }
 
 .description {
@@ -50,5 +52,7 @@
 
 .user-reviews {
     flex: 1;
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
