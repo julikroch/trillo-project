@@ -1,22 +1,25 @@
 import { useState } from 'react';
-import { FaStar, FaLocationArrow, FaChevronRight } from 'react-icons/fa';
+import { FaStar, FaLocationArrow, FaChevronRight, FaQuoteLeft } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
 
-type Image = {
+interface Image {
     id: number
     img: string
     alt: string
 }
-
-type PersonImages = {
-    id: number
-    img: string
-    alt: string
-}
-
-type Item = {
+interface Item {
     id: number
     text: string
+}
+
+interface Reviews {
+    id: number,
+    img: string,
+    alt: string
+    description: string
+    name: string
+    date: string
+    rating: number
 }
 
 type Hotel = {
@@ -29,7 +32,8 @@ type Hotel = {
     reviews: string
     images: Image[]
     items: Item[]
-    personImages: PersonImages[]
+    personImages: Image[],
+    personReviews: Reviews[]
 }
 
 const getStars = (stars: number) => {
@@ -53,10 +57,10 @@ const Main = () => {
         ratingCount,
         stars,
         description,
-        reviews,
         images,
         items,
-        personImages
+        personImages,
+        personReviews
     } = hotel
 
     return (
@@ -103,40 +107,30 @@ const Main = () => {
                             Lucy and 3 other friends recommend this hotel
                         </div>
                         <div className="recommend__friends">
-                            {personImages.map((image: PersonImages, i: number) => (
+                            {personImages.map((image: Image, i: number) => (
                                 <img key={i} src={require(`../img/${image.img}`).default} alt={image.alt} className="recommend__photo" />
                             ))}
                         </div>
                     </div>
                 </div>
                 <div className="user-reviews">
-                    <figure className="review">
-                        <blockquote className="review__text">
-                            {reviews}
-                        </blockquote>
-                        <figcaption className="review__user">
-                            <img src='' alt="" className="review__photo" />
-                            <div className="review__user-box">
-                                <p className="review__user-name">Nick Smith</p>
-                                <p className="review__user-date">Feb 23rd, 2021</p>
-                            </div>
-                            <div className="review__rating">7.8</div>
-                        </figcaption>
-                    </figure>
-                    <figure className="review">
-                        <blockquote className="review__text">
-                            {reviews}
-                        </blockquote>
-                        <figcaption className="review__user">
-                            <img src='' alt="" className="review__photo" />
-                            <div className="review__user-box">
-                                <p className="review__user-name">Mary Thomas</p>
-                                <p className="review__user-date">Feb 28th, 2021</p>
-                            </div>
-                            <div className="review__rating">9.3</div>
-                        </figcaption>
-                    </figure>
-                    <button className="btn-inline">Show all <span>&rarr;</span></button>
+                    {personReviews.map((review: Reviews) => (
+                        <figure className="review">
+                            <blockquote className="review__text">
+                                {review.description}
+                            </blockquote>
+                            <figcaption className="review__user">
+                                <FaQuoteLeft className="review__quote" />
+                                <img src={require(`../img/${review.img}`).default} alt={review.alt} className="review__photo" />
+                                <div className="review__user-box">
+                                    <p className="review__user-name">{review.name}</p>
+                                    <p className="review__user-date">{review.date}</p>
+                                </div>
+                                <div className="review__rating">{review.rating}</div>
+                            </figcaption>
+                        </figure>
+                    ))}
+                    <button className="btn-inline">Show all<span>&rarr;</span></button>
                 </div>
             </div>
         </main>

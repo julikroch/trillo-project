@@ -70,5 +70,25 @@
             "img": "user-4.jpg",
             "alt": "User 4"
         }
+    ],
+    "personReviews": [
+        {
+            "id": 1,
+            "img": "user-1.jpg",
+            "alt": "User 1",
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, deleniti qui.",
+            "name": "Nick Smith",
+            "date": "Feb 23rd, 2021",
+            "rating": 7.8
+        },
+        {
+            "id": 2,
+            "img": "user-2.jpg",
+            "alt": "User 2",
+            "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, deleniti qui.",
+            "name": "Mary Thomas",
+            "date": "Feb 28rd, 2021",
+            "rating": 9.8
+        }
     ]
 }
