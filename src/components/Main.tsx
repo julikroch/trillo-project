@@ -72,7 +72,6 @@ const Main = () => {
                     </figure>
                 ))}
             </div>
-
             <div className="overview">
                 <div className="overview__heading">
                     {name}
