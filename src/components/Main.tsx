@@ -3,17 +3,16 @@ import { FaStar, FaLocationArrow, FaChevronRight, FaQuoteLeft } from 'react-icon
 import hotels from './../json/hotel.json'
 
 interface Image {
-    id: number
+    id?: number
     img: string
     alt: string
 }
 interface Item {
-    id: number
+    id?: number
     text: string
 }
-
 interface Reviews {
-    id: number,
+    id?: number,
     img: string,
     alt: string
     description: string
@@ -21,7 +20,6 @@ interface Reviews {
     date: string
     rating: number
 }
-
 type Hotel = {
     name: string
     stars: number
@@ -57,11 +55,9 @@ const Main: FunctionComponent = () => {
 
     const getStars = (stars: number) => {
         let starRate = [];
-
         for (let index = 0; index < stars; index++) {
             starRate.push(<FaStar className='overview__icon-star' />)
         }
-
         return starRate
     }
 
@@ -140,8 +136,7 @@ const Main: FunctionComponent = () => {
                 </h2>
                 <button className="btn">
                     <span className="btn__visible">Book now</span>
-                    <span className="btn__invisible">
-                        {randomNumber !== 0 ? `Only ${randomNumber} rooms` : 'No rooms available 😞'} left</span>
+                    <span className="btn__invisible">{randomNumber !== 0 ? `Only ${randomNumber} rooms` : 'No rooms available 😞'}</span>
                 </button>
             </div>
         </main>
