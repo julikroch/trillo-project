@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { FaStar, FaLocationArrow, FaChevronRight, FaQuoteLeft } from 'react-icons/fa';
 import hotels from './../json/hotel.json'
 
@@ -36,17 +36,9 @@ type Hotel = {
     personReviews: Reviews[]
 }
 
-const getStars = (stars: number) => {
-    let starRate = [];
+let randomNumber: number = Math.floor(Math.random() * 10);
 
-    for (let index = 0; index < stars; index++) {
-        starRate.push(<FaStar className='overview__icon-star' />)
-    }
-
-    return starRate
-}
-
-const Main = () => {
+const Main: FunctionComponent = () => {
 
     const [hotel] = useState<Hotel>(hotels)
 
@@ -62,6 +54,16 @@ const Main = () => {
         personImages,
         personReviews
     } = hotel
+
+    const getStars = (stars: number) => {
+        let starRate = [];
+
+        for (let index = 0; index < stars; index++) {
+            starRate.push(<FaStar className='overview__icon-star' />)
+        }
+
+        return starRate
+    }
 
     return (
         <main className="hotel-view">
@@ -131,6 +133,16 @@ const Main = () => {
                     ))}
                     <button className="btn-inline">Show all<span>&rarr;</span></button>
                 </div>
+            </div>
+            <div className="cta">
+                <h2 className="cta__book-now">
+                    {randomNumber !== 0 ? `Good news! We have ${randomNumber} free room/s for your selected dates!` : 'No rooms available for selected dates 😞'}
+                </h2>
+                <button className="btn">
+                    <span className="btn__visible">Book now</span>
+                    <span className="btn__invisible">
+                        {randomNumber !== 0 ? `Only ${randomNumber} rooms` : 'No rooms available 😞'} left</span>
+                </button>
             </div>
         </main>
     )
