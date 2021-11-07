@@ -111,8 +111,8 @@ const Main: FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="user-reviews">
-                    {personReviews.map((review: Reviews) => (
-                        <figure className="review">
+                    {personReviews.map((review: Reviews, i: number) => (
+                        <figure className="review" key={i}>
                             <blockquote className="review__text">
                                 {review.description}
                             </blockquote>
